@@ -1,1 +1,1 @@
-# website-generator
+# WebSite Generator
