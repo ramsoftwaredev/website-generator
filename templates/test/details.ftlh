@@ -1,0 +1,5 @@
+<details>
+
+${name}
+
+</details>
