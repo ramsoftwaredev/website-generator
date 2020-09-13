@@ -1,32 +1,13 @@
-package ch.echosystem.website.util;
+package dev;
 
-import java.io.IOException;
-import java.io.StringReader;
-import java.io.UncheckedIOException;
-import java.nio.charset.StandardCharsets;
-import java.util.Properties;
-import org.apache.commons.io.IOUtils;
 import ch.echosystem.util.argument.Argument;
+import ch.echosystem.util.code.MoveTo;
 
+@Deprecated
+@MoveTo("echosystem.util")
 public final class Utils
 	{
-	@FunctionalInterface
-	public interface Wrapper
-		{
-		public void execute() throws IOException;
-		}
-	
-	@FunctionalInterface
-	public interface WrapperReturnValue<T>
-		{
-		public T execute() throws IOException;
-		}
-	
-	private Utils()
-		{
-		throw new UnsupportedOperationException();
-		}
-	
+	/*
 	public static Properties getProperties(final String name)
 		{
 		final String content = wrapIOException(() ->
@@ -46,6 +27,7 @@ public final class Utils
 			return properties;
 			}
 		}
+	*/
 	
 	public static Object newInstanceOf(final String className) throws ClassNotFoundException, InstantiationException, IllegalAccessException
 		{
@@ -59,29 +41,5 @@ public final class Utils
 		Argument.notNull(classOfT);
 		
 		return classOfT.cast(newInstanceOf(className));
-		}
-	
-	public static void wrapIOException(final Wrapper wrapper)
-		{
-		try
-			{
-			wrapper.execute();
-			}
-		catch (final IOException ex)
-			{
-			throw new UncheckedIOException(ex);
-			}
-		}
-	
-	public static <T> T wrapIOException(final WrapperReturnValue<T> wrapper)
-		{
-		try
-			{
-			return wrapper.execute();
-			}
-		catch (final IOException ex)
-			{
-			throw new UncheckedIOException(ex);
-			}
 		}
 	}

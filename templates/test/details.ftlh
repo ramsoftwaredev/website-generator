@@ -1,5 +1,0 @@
-<details>
-
-${name}
-
-</details>

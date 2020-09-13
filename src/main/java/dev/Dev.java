@@ -1,29 +1,35 @@
 package dev;
 
-import java.util.Properties;
-import ch.echosystem.website.generator.AbstractWebComponent;
-import ch.echosystem.website.generator.HtmlRenderer;
-import ch.echosystem.website.generator.WebSiteGenerator;
-import ch.echosystem.website.util.Utils;
+import ch.echosystem.website.generator.HTML;
+import opendata.RepositoryPage;
 
 public class Dev
 	{
-	public static void main(String[] args)
+	public static void main(String[] args) throws Exception
 		{
-		dev();
+		//dev();
 		
-		final Properties properties = Utils.getProperties("/config.properties");
-		
-		System.out.println(properties.getProperty("sdsd"));
+		opendata();
 		}
 	
-	public static void dev()
+	/*
+	public static void dev() throws Exception
 		{
-		final WebSiteGenerator generator = new WebSiteGenerator();
+		final HTML generator = new HTML("templates", false);
 		
-		AbstractWebComponent.renderer = (HtmlRenderer) generator;
+		//final String html = generator.render("/web/html5.ftlh", new PP());
+		final String html = generator.render(new PP());
 		
-		final String html = new Page().render();
+		System.out.println(html);
+		}
+	*/
+	
+	public static void opendata() throws Exception
+		{
+		final HTML generator = new HTML("templates", false);
+		
+		final String html = generator.render(new RepositoryPage(new Repo()));
+		//final String html = generator.render(new IndexPage());
 		
 		System.out.println(html);
 		}

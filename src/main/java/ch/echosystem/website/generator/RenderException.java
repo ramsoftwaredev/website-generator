@@ -1,18 +1,18 @@
-package ch.echosystem.website.generator.exception;
+package ch.echosystem.website.generator;
 
 /**
- * @version 0.1.0
- * @since 0.1.0
+ * @version 0.3.0
+ * @since 0.3.0
  */
 public class RenderException extends RuntimeException
 	{
 	/**
-	 * @since 0.1.0
+	 * @since 0.3.0
 	 */
 	private static final long serialVersionUID = -1608510599601726082L;
 	
 	/**
-	 * @since 0.1.0
+	 * @since 0.3.0
 	 */
 	public RenderException()
 		{
@@ -20,7 +20,7 @@ public class RenderException extends RuntimeException
 		}
 	
 	/**
-	 * @since 0.1.0
+	 * @since 0.3.0
 	 */
 	public RenderException(final String message)
 		{
@@ -28,7 +28,7 @@ public class RenderException extends RuntimeException
 		}
 	
 	/**
-	 * @since 0.1.0
+	 * @since 0.3.0
 	 */
 	public RenderException(final Throwable throwable)
 		{
